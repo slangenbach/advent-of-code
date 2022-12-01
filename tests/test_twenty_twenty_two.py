@@ -1,10 +1,10 @@
 import pytest
 
+from advent_of_code.constants import TEST_PATH
 from advent_of_code.twenty_twenty_two.calorie_counting import (
     count_calories,
     count_top3_calories,
 )
-from advent_of_code.constants import TEST_PATH
 
 
 @pytest.fixture()

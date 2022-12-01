@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from advent_of_code.constants import TWENTY_TWENTY_TWO_PATH
 
 
