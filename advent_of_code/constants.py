@@ -1,0 +1,6 @@
+from pathlib import Path
+
+ROOT_PATH = Path(__file__).parent.parent
+TEST_PATH = ROOT_PATH / "tests"
+PACKAGE_PATH = ROOT_PATH / "advent_of_code"
+TWENTY_TWENTY_TWO_PATH = PACKAGE_PATH / "twenty_twenty_two"
