@@ -1,3 +1,5 @@
+"""Puzzle for advent of code day 01."""
+
 from pathlib import Path
 
 from advent_of_code.constants import TWENTY_TWENTY_TWO_PATH
