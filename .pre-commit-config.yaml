@@ -8,6 +8,7 @@ repos:
         name: Check TOML files
       - id: end-of-file-fixer
         name: Ensure proper file endings
+        exclude: input
       - id: trailing-whitespace
         name: Remove unnecessary whitespace from code
         args: [--markdown-linebreak-ext=md]
