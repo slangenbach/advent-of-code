@@ -1,16 +1,12 @@
-"""Puzzle for advent of code day 01."""
-
-from pathlib import Path
+"""Puzzle for advent of code 2022 day 01."""
 
 from advent_of_code.constants import TWENTY_TWENTY_TWO_PATH
+from advent_of_code.utils import load_input
 
 
-def count_calories(calorie_list: Path) -> int:
+def count_calories(calories: list[str]) -> int:
     max_calories = 0
     counter = 0
-
-    with calorie_list.open("r") as f:
-        calories = f.read().split("\n")
 
     for calorie in calories:
         try:
@@ -23,12 +19,9 @@ def count_calories(calorie_list: Path) -> int:
     return max_calories
 
 
-def count_top3_calories(calorie_list: Path) -> int:
+def count_top3_calories(calories: list[str]) -> int:
     counter = 0
     result = []
-
-    with calorie_list.open("r") as f:
-        calories = f.read().split("\n")
 
     for calorie in calories:
         try:
@@ -45,7 +38,8 @@ def count_top3_calories(calorie_list: Path) -> int:
 
 
 if __name__ == "__main__":
-    calorie_list = TWENTY_TWENTY_TWO_PATH.joinpath("input_calorie_counting")
+    calorie_counting_input = TWENTY_TWENTY_TWO_PATH.joinpath("input_calorie_counting")
+    calorie_list = load_input(calorie_counting_input)
     print(
         f"Solution for count_calories: {count_calories(calorie_list)}",
         f"Solution for count_top3_calories is: {count_top3_calories(calorie_list)}",

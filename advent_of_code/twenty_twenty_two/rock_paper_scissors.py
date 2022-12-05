@@ -1,8 +1,9 @@
-"""Puzzle for advent of code day 02."""
-from pathlib import Path
+"""Puzzle for advent of code 2022 day 02."""
+
 from typing import Tuple
 
 from advent_of_code.constants import TWENTY_TWENTY_TWO_PATH
+from advent_of_code.utils import load_input
 
 OUTCOME_SCORE = {"win": 6, "draw": 3, "lost": 0}
 
@@ -18,10 +19,6 @@ STRATEGY_MAPPING = {
 }
 
 FAKE_MAPPING = {"X": "lose", "Y": "draw", "Z": "win"}
-
-
-def load_input(strategy_guide: Path) -> list[str]:
-    return strategy_guide.read_text().split("\n")
 
 
 def transform_scores(opponent: str, you: str, faked: bool) -> Tuple[str, str]:
@@ -70,7 +67,8 @@ def evaluate_faked_round(opp: str, you: str):
 
 
 def evaluate_tournament(rounds: list[str], faked: bool) -> int:
-    scores = []
+    total_score = 0
+
     for round in rounds:
         raw_opponent_score, raw_your_score = round.split(" ")
         if faked:
@@ -84,15 +82,16 @@ def evaluate_tournament(rounds: list[str], faked: bool) -> int:
             )
             score = evaluate_round(opponent_score, your_score)
 
-        scores.append(score)
+        total_score += score
 
-    return sum(scores)
+    return total_score
 
 
 if __name__ == "__main__":
-    strategy_guide = load_input(
-        TWENTY_TWENTY_TWO_PATH.joinpath("input_rock_paper_scissors")
+    rock_paper_scissors_input = TWENTY_TWENTY_TWO_PATH.joinpath(
+        "input_rock_paper_scissors"
     )
+    strategy_guide = load_input(rock_paper_scissors_input)
     legit_score = evaluate_tournament(strategy_guide, faked=False)
     faked_score = evaluate_tournament(strategy_guide, faked=True)
     print(
