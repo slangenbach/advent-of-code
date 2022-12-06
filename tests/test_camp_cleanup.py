@@ -1,0 +1,88 @@
+import pytest
+
+from advent_of_code.constants import TEST_INPUT_PATH
+from advent_of_code.twenty_twenty_two.camp_cleanup import (
+    calculate_fully_contained_assignments,
+    calculate_overlapping_assignments,
+    is_fully_contained,
+    is_overlapping,
+    split_assignment,
+    transform_sections,
+)
+from advent_of_code.utils import load_input
+
+CAMP_CLEANUP_INPUT_PATH = TEST_INPUT_PATH.joinpath("input_camp_cleanup")
+
+
+@pytest.fixture(scope="session")
+def camp_cleanup_input():
+    return load_input(CAMP_CLEANUP_INPUT_PATH)
+
+
+def test_load_data():
+    assert load_input(CAMP_CLEANUP_INPUT_PATH) == [
+        "2-4,6-8",
+        "2-3,4-5",
+        "5-7,7-9",
+        "2-8,3-7",
+        "6-6,4-6",
+        "2-6,4-8",
+    ]
+
+
+def test_split_assignments():
+    assert split_assignment("2-4,6-8") == [["2", "4"], ["6", "8"]]
+
+
+def test_transform_sections():
+    assert transform_sections([["2", "4"], ["6", "8"]]) == (2, 4, 6, 8)
+
+
+def test_is_fully_contained():
+    assert not is_fully_contained(
+        start_first_section=2,
+        stop_first_section=4,
+        start_second_section=6,
+        stop_second_section=8,
+    )
+    assert is_fully_contained(
+        start_first_section=2,
+        stop_first_section=8,
+        start_second_section=3,
+        stop_second_section=7,
+    )
+
+
+def test_calculate_fully_contained_assignments(camp_cleanup_input):
+    assert calculate_fully_contained_assignments(camp_cleanup_input) == 2
+
+
+def test_is_overlapping():
+    assert not is_overlapping(
+        start_first_section=2,
+        stop_first_section=4,
+        start_second_section=6,
+        stop_second_section=8,
+    )
+    assert is_overlapping(
+        start_first_section=5,
+        stop_first_section=7,
+        start_second_section=7,
+        stop_second_section=9,
+    )
+    assert is_overlapping(
+        start_first_section=6,
+        stop_first_section=6,
+        start_second_section=4,
+        stop_second_section=6,
+    )
+    assert is_overlapping(
+        start_first_section=2,
+        stop_first_section=6,
+        start_second_section=4,
+        stop_second_section=8,
+    )
+
+
+def test_calculate_overlapping_assignments(camp_cleanup_input):
+    assert calculate_overlapping_assignments(camp_cleanup_input) == 4
