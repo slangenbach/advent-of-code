@@ -45,7 +45,7 @@
 			"",
 			"",
 			"def solve_puzzle():",
-			"\tpuzzle_input_path = TWENTY_TWENTY_TWO_PATH.joinpath(\"${TM_FILENAME_BASE}_input\")",
+			"\tpuzzle_input_path = TWENTY_TWENTY_TWO_PATH.joinpath(\"input_${TM_FILENAME_BASE}\")",
 			"\tpuzzle_input = load_input(puzzle_input_path)",
 			"\tsolution_part_one = None",
 			"\tsolution_part_two = None",
