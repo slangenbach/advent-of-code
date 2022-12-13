@@ -77,6 +77,7 @@ def solve_puzzle():
     solution_part_one = calculate_visible_trees(puzzle_input)
     solution_part_two = calculate_max_scenic_score(puzzle_input)
     print(
+        "Advent of code 2022 day 08:",
         f"Solution for part one: {solution_part_one}",
         f"Solution for part two: {solution_part_two}",
         sep="\n",

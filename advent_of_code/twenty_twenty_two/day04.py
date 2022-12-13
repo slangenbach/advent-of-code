@@ -2,7 +2,7 @@
 
 from typing import Tuple
 
-from advent_of_code.constants import TWENTY_TWENTY_TWO_PATH
+from advent_of_code.constants import TWENTY_TWENTY_TWO_INPUT_PATH
 from advent_of_code.utils import load_input
 
 
@@ -93,12 +93,12 @@ def calculate_overlapping_assignments(assignments: list[str]) -> int:
 
 
 def solve_puzzle():
-    puzzle_input_path = TWENTY_TWENTY_TWO_PATH.joinpath("input_camp_cleanup")
+    puzzle_input_path = TWENTY_TWENTY_TWO_INPUT_PATH.joinpath("day04")
     puzzle_input = load_input(puzzle_input_path)
     solution_part_one = calculate_fully_contained_assignments(puzzle_input)
     solution_part_two = calculate_overlapping_assignments(puzzle_input)
     print(
-        "Camp cleanup",
+        "Advent of code 2022 day 04:",
         f"Solution for part one: {solution_part_one}",
         f"Solution for part two: {solution_part_two}",
         sep="\n",

@@ -10,16 +10,16 @@ from advent_of_code.twenty_twenty_two.day08 import (
     load_input,
 )
 
-DAY_08_INPUT_PATH = TEST_INPUT_PATH.joinpath("day_08_test")
+DAY08_INPUT_PATH = TEST_INPUT_PATH.joinpath("day08")
 
 
 @pytest.fixture(scope="session")
-def day_08_input():
-    return load_input(DAY_08_INPUT_PATH)
+def day08_input():
+    return load_input(DAY08_INPUT_PATH)
 
 
 def test_load_input():
-    assert load_input(DAY_08_INPUT_PATH) == [
+    assert load_input(DAY08_INPUT_PATH) == [
         [3, 0, 3, 7, 3],
         [2, 5, 5, 1, 2],
         [6, 5, 3, 3, 2],
@@ -36,8 +36,8 @@ def test_load_input():
         (3, 1, ([5, 5, 2], [7], [2], [3, 4, 9])),
     ],
 )
-def test_get_sight_lines(x, y, day_08_input, expected):
-    assert get_sight_lines(x=x, y=y, grid=day_08_input) == expected
+def test_get_sight_lines(x, y, day08_input, expected):
+    assert get_sight_lines(x=x, y=y, grid=day08_input) == expected
 
 
 def test_is_visible():
@@ -45,8 +45,8 @@ def test_is_visible():
     assert not is_visible(height=1, sight_lines=([5, 5, 2], [7], [2], [3, 4, 9]))
 
 
-def test_calculate_visible_trees(day_08_input):
-    assert calculate_visible_trees(day_08_input) == 21
+def test_calculate_visible_trees(day08_input):
+    assert calculate_visible_trees(day08_input) == 21
 
 
 def test_calculate_scenic_score():
@@ -56,5 +56,5 @@ def test_calculate_scenic_score():
     )
 
 
-def test_calculate_max_scenic_score(day_08_input):
-    assert calculate_max_scenic_score(day_08_input) == 8
+def test_calculate_max_scenic_score(day08_input):
+    assert calculate_max_scenic_score(day08_input) == 8

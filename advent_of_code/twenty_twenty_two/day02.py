@@ -2,7 +2,7 @@
 
 from typing import Tuple
 
-from advent_of_code.constants import TWENTY_TWENTY_TWO_PATH
+from advent_of_code.constants import TWENTY_TWENTY_TWO_INPUT_PATH
 from advent_of_code.utils import load_input
 
 OUTCOME_SCORE = {"win": 6, "draw": 3, "lost": 0}
@@ -88,13 +88,12 @@ def evaluate_tournament(rounds: list[str], faked: bool) -> int:
 
 
 if __name__ == "__main__":
-    rock_paper_scissors_input = TWENTY_TWENTY_TWO_PATH.joinpath(
-        "input_rock_paper_scissors"
-    )
-    strategy_guide = load_input(rock_paper_scissors_input)
+    day02_input = TWENTY_TWENTY_TWO_INPUT_PATH.joinpath("day02")
+    strategy_guide = load_input(day02_input)
     legit_score = evaluate_tournament(strategy_guide, faked=False)
     faked_score = evaluate_tournament(strategy_guide, faked=True)
     print(
+        "Advent of code 2022 day 02:",
         f"Total score for legit tournament: {legit_score}",
         f"Total score for faked tournament: {faked_score}",
         sep="\n",

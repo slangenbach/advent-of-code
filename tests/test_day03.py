@@ -1,7 +1,7 @@
 import pytest
 
 from advent_of_code.constants import TEST_INPUT_PATH
-from advent_of_code.twenty_twenty_two.rucksack_reorganization import (
+from advent_of_code.twenty_twenty_two.day03 import (
     calculate_badge_priority,
     calculate_item_priority,
     find_badge,
@@ -12,18 +12,16 @@ from advent_of_code.twenty_twenty_two.rucksack_reorganization import (
 )
 from advent_of_code.utils import load_input
 
-RUCKSACK_REORGANIZATION_INPUT_PATH = TEST_INPUT_PATH.joinpath(
-    "input_rucksack_reorganization"
-)
+DAY03_INPUT_PATH = TEST_INPUT_PATH.joinpath("day03")
 
 
 @pytest.fixture(scope="session")
-def rucksack_reorganization_input():
-    return load_input(RUCKSACK_REORGANIZATION_INPUT_PATH)
+def day03_input():
+    return load_input(DAY03_INPUT_PATH)
 
 
 def test_load_input():
-    assert load_input(RUCKSACK_REORGANIZATION_INPUT_PATH) == [
+    assert load_input(DAY03_INPUT_PATH) == [
         "vJrwpWtwJgWrhcsFMMfFFhFp",
         "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
         "PmmdzqPrVvPwwTWBwg",
@@ -54,12 +52,12 @@ def test_get_priority():
     assert get_priority("L") == 38
 
 
-def test_calculate_item_priority(rucksack_reorganization_input):
-    assert calculate_item_priority(rucksack_reorganization_input) == 157
+def test_calculate_item_priority(day03_input):
+    assert calculate_item_priority(day03_input) == 157
 
 
-def test_split_groups(rucksack_reorganization_input):
-    assert split_groups(rucksack_reorganization_input) == [
+def test_split_groups(day03_input):
+    assert split_groups(day03_input) == [
         [
             "vJrwpWtwJgWrhcsFMMfFFhFp",
             "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
@@ -84,5 +82,5 @@ def test_find_badge():
     )
 
 
-def test_calculate_badge_priority(rucksack_reorganization_input):
-    assert calculate_badge_priority(rucksack_reorganization_input) == 70
+def test_calculate_badge_priority(day03_input):
+    assert calculate_badge_priority(day03_input) == 70

@@ -1,7 +1,7 @@
 import pytest
 
 from advent_of_code.constants import TEST_INPUT_PATH
-from advent_of_code.twenty_twenty_two.camp_cleanup import (
+from advent_of_code.twenty_twenty_two.day04 import (
     calculate_fully_contained_assignments,
     calculate_overlapping_assignments,
     is_fully_contained,
@@ -11,16 +11,16 @@ from advent_of_code.twenty_twenty_two.camp_cleanup import (
 )
 from advent_of_code.utils import load_input
 
-CAMP_CLEANUP_INPUT_PATH = TEST_INPUT_PATH.joinpath("input_camp_cleanup")
+DAY04_INPUT_PATH = TEST_INPUT_PATH.joinpath("day04")
 
 
 @pytest.fixture(scope="session")
-def camp_cleanup_input():
-    return load_input(CAMP_CLEANUP_INPUT_PATH)
+def day04_input():
+    return load_input(DAY04_INPUT_PATH)
 
 
 def test_load_data():
-    assert load_input(CAMP_CLEANUP_INPUT_PATH) == [
+    assert load_input(DAY04_INPUT_PATH) == [
         "2-4,6-8",
         "2-3,4-5",
         "5-7,7-9",
@@ -53,8 +53,8 @@ def test_is_fully_contained():
     )
 
 
-def test_calculate_fully_contained_assignments(camp_cleanup_input):
-    assert calculate_fully_contained_assignments(camp_cleanup_input) == 2
+def test_calculate_fully_contained_assignments(day04_input):
+    assert calculate_fully_contained_assignments(day04_input) == 2
 
 
 def test_is_overlapping():
@@ -84,5 +84,5 @@ def test_is_overlapping():
     )
 
 
-def test_calculate_overlapping_assignments(camp_cleanup_input):
-    assert calculate_overlapping_assignments(camp_cleanup_input) == 4
+def test_calculate_overlapping_assignments(day04_input):
+    assert calculate_overlapping_assignments(day04_input) == 4

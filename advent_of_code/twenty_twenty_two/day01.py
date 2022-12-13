@@ -1,6 +1,6 @@
 """Puzzle for advent of code 2022 day 01."""
 
-from advent_of_code.constants import TWENTY_TWENTY_TWO_PATH
+from advent_of_code.constants import TWENTY_TWENTY_TWO_INPUT_PATH
 from advent_of_code.utils import load_input
 
 
@@ -38,10 +38,11 @@ def count_top3_calories(calories: list[str]) -> int:
 
 
 if __name__ == "__main__":
-    calorie_counting_input = TWENTY_TWENTY_TWO_PATH.joinpath("input_calorie_counting")
-    calorie_list = load_input(calorie_counting_input)
+    day01_input = TWENTY_TWENTY_TWO_INPUT_PATH.joinpath("day01")
+    calorie_list = load_input(day01_input)
     print(
-        f"Solution for count_calories: {count_calories(calorie_list)}",
-        f"Solution for count_top3_calories is: {count_top3_calories(calorie_list)}",
+        "Advent of code 2022 day 01:",
+        f"Solution for part one: {count_calories(calorie_list)}",
+        f"Solution for part two: {count_top3_calories(calorie_list)}",
         sep="\n",
     )

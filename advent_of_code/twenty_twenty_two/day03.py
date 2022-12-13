@@ -3,7 +3,7 @@
 from string import ascii_lowercase, ascii_uppercase
 from typing import Tuple
 
-from advent_of_code.constants import TWENTY_TWENTY_TWO_PATH
+from advent_of_code.constants import TWENTY_TWENTY_TWO_INPUT_PATH
 from advent_of_code.utils import load_input
 
 
@@ -61,13 +61,12 @@ def calculate_badge_priority(rucksacks: list[str]) -> int:
 
 
 if __name__ == "__main__":
-    rucksack_reorganization_input = TWENTY_TWENTY_TWO_PATH.joinpath(
-        "input_rucksack_reorganization"
-    )
-    rucksacks = load_input(rucksack_reorganization_input)
+    day03_input = TWENTY_TWENTY_TWO_INPUT_PATH.joinpath("day03")
+    rucksacks = load_input(day03_input)
     item_priority = calculate_item_priority(rucksacks)
     badge_priority = calculate_badge_priority(rucksacks)
     print(
+        "Advent of code 2022 day 03:",
         f"Item priority: {item_priority}",
         f"Badge priority: {badge_priority}",
         sep="\n",
