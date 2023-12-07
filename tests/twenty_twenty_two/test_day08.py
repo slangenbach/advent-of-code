@@ -1,6 +1,6 @@
 import pytest
 
-from advent_of_code.constants import TEST_INPUT_PATH
+from advent_of_code.constants import TWENTY_TWENTY_TWO_TEST_INPUT_PATH
 from advent_of_code.twenty_twenty_two.day08 import (
     calculate_max_scenic_score,
     calculate_scenic_score,
@@ -10,7 +10,7 @@ from advent_of_code.twenty_twenty_two.day08 import (
     load_input,
 )
 
-DAY08_INPUT_PATH = TEST_INPUT_PATH.joinpath("day08")
+DAY08_INPUT_PATH = TWENTY_TWENTY_TWO_TEST_INPUT_PATH.joinpath("day08")
 
 
 @pytest.fixture(scope="session")
@@ -50,10 +50,7 @@ def test_calculate_visible_trees(day08_input):
 
 
 def test_calculate_scenic_score():
-    assert (
-        calculate_scenic_score(height=5, sight_lines=([5, 2], [3], [1, 2], [3, 5, 3]))
-        == 4
-    )
+    assert calculate_scenic_score(height=5, sight_lines=([5, 2], [3], [1, 2], [3, 5, 3])) == 4
 
 
 def test_calculate_max_scenic_score(day08_input):

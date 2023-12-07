@@ -1,6 +1,6 @@
 import pytest
 
-from advent_of_code.constants import TEST_INPUT_PATH
+from advent_of_code.constants import TWENTY_TWENTY_TWO_TEST_INPUT_PATH
 from advent_of_code.twenty_twenty_two.day03 import (
     calculate_badge_priority,
     calculate_item_priority,
@@ -12,7 +12,7 @@ from advent_of_code.twenty_twenty_two.day03 import (
 )
 from advent_of_code.utils import load_input
 
-DAY03_INPUT_PATH = TEST_INPUT_PATH.joinpath("day03")
+DAY03_INPUT_PATH = TWENTY_TWENTY_TWO_TEST_INPUT_PATH.joinpath("day03")
 
 
 @pytest.fixture(scope="session")
@@ -40,9 +40,7 @@ def test_split_compartment():
 
 def test_find_identical_item():
     assert (
-        find_identical_item(
-            first_compartment="vJrwpWtwJgWr", second_compartment="hcsFMMfFFhFp"
-        )
+        find_identical_item(first_compartment="vJrwpWtwJgWr", second_compartment="hcsFMMfFFhFp")
         == "p"
     )
 

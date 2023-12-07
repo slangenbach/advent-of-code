@@ -1,6 +1,6 @@
 import pytest
 
-from advent_of_code.constants import TEST_INPUT_PATH
+from advent_of_code.constants import TWENTY_TWENTY_TWO_TEST_INPUT_PATH
 from advent_of_code.twenty_twenty_two.day05 import (
     parse_input,
     solve_part_one,
@@ -8,12 +8,12 @@ from advent_of_code.twenty_twenty_two.day05 import (
 )
 from advent_of_code.utils import load_input
 
-TODAYS_TEST_INPUT_PATH = TEST_INPUT_PATH.joinpath("day05")
+TODAYS_TWENTY_TWENTY_TWO_TEST_INPUT_PATH = TWENTY_TWENTY_TWO_TEST_INPUT_PATH.joinpath("day05")
 
 
 @pytest.fixture(scope="session")
 def raw_input():
-    return load_input(TODAYS_TEST_INPUT_PATH)
+    return load_input(TODAYS_TWENTY_TWENTY_TWO_TEST_INPUT_PATH)
 
 
 def test_parse_input(raw_input):

@@ -1,10 +1,10 @@
 import pytest
 
-from advent_of_code.constants import TEST_INPUT_PATH
+from advent_of_code.constants import TWENTY_TWENTY_TWO_TEST_INPUT_PATH
 from advent_of_code.twenty_twenty_two.day02 import evaluate_tournament, transform_scores
 from advent_of_code.utils import load_input
 
-DAY02_INPUT_PATH = TEST_INPUT_PATH.joinpath("day02")
+DAY02_INPUT_PATH = TWENTY_TWENTY_TWO_TEST_INPUT_PATH.joinpath("day02")
 
 
 @pytest.fixture(scope="session")

@@ -1,19 +1,19 @@
 import pytest
 
-from advent_of_code.constants import TEST_INPUT_PATH
+from advent_of_code.constants import TWENTY_TWENTY_TWO_TEST_INPUT_PATH
 from advent_of_code.twenty_twenty_two.day01 import count_calories, count_top3_calories
 from advent_of_code.utils import load_input
 
-DAY01_TEST_INPUT_PATH = TEST_INPUT_PATH.joinpath("day01")
+DAY01_TWENTY_TWENTY_TWO_TEST_INPUT_PATH = TWENTY_TWENTY_TWO_TEST_INPUT_PATH.joinpath("day01")
 
 
 @pytest.fixture(scope="session")
 def day01_input():
-    return load_input(DAY01_TEST_INPUT_PATH)
+    return load_input(DAY01_TWENTY_TWENTY_TWO_TEST_INPUT_PATH)
 
 
 def test_load_input():
-    assert load_input(DAY01_TEST_INPUT_PATH) == [
+    assert load_input(DAY01_TWENTY_TWENTY_TWO_TEST_INPUT_PATH) == [
         "1000",
         "2000",
         "3000",

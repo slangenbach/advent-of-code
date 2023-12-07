@@ -1,6 +1,6 @@
 import pytest
 
-from advent_of_code.constants import TEST_INPUT_PATH
+from advent_of_code.constants import TWENTY_TWENTY_TWO_TEST_INPUT_PATH
 from advent_of_code.twenty_twenty_two.day13 import (
     compare_integers,
     compare_lists,
@@ -14,12 +14,12 @@ from advent_of_code.twenty_twenty_two.day13 import (
 )
 from advent_of_code.utils import load_input
 
-DAY13_TEST_INPUT_PATH = TEST_INPUT_PATH.joinpath("day13")
+DAY13_TWENTY_TWENTY_TWO_TEST_INPUT_PATH = TWENTY_TWENTY_TWO_TEST_INPUT_PATH.joinpath("day13")
 
 
 @pytest.fixture(scope="session")
 def raw_input():
-    return load_input(DAY13_TEST_INPUT_PATH)
+    return load_input(DAY13_TWENTY_TWENTY_TWO_TEST_INPUT_PATH)
 
 
 @pytest.fixture(scope="session")
@@ -45,9 +45,7 @@ def test_parse_input(raw_input):
     ]
 
 
-@pytest.mark.parametrize(
-    ["left", "right", "expected"], [(1, 2, True), (2, 1, False), (1, 1, None)]
-)
+@pytest.mark.parametrize(["left", "right", "expected"], [(1, 2, True), (2, 1, False), (1, 1, None)])
 def test_compare_integers(left, right, expected):
     assert compare_integers(left, right) == expected
 

@@ -1,6 +1,6 @@
 import pytest
 
-from advent_of_code.constants import TEST_INPUT_PATH
+from advent_of_code.constants import TWENTY_TWENTY_TWO_TEST_INPUT_PATH
 from advent_of_code.twenty_twenty_two.day04 import (
     calculate_fully_contained_assignments,
     calculate_overlapping_assignments,
@@ -11,7 +11,7 @@ from advent_of_code.twenty_twenty_two.day04 import (
 )
 from advent_of_code.utils import load_input
 
-DAY04_INPUT_PATH = TEST_INPUT_PATH.joinpath("day04")
+DAY04_INPUT_PATH = TWENTY_TWENTY_TWO_TEST_INPUT_PATH.joinpath("day04")
 
 
 @pytest.fixture(scope="session")
