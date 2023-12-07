@@ -1,84 +1,84 @@
 {
-	// Place your advent-of-code-2022 workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
-	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
-	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
-	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
-	// Placeholders with the same ids are connected.
-	// Example:
-	// "Print to console": {
-	// 	"scope": "javascript,typescript",
-	// 	"prefix": "log",
-	// 	"body": [
-	// 		"console.log('$1');",
-	// 		"$2"
-	// 	],
-	// 	"description": "Log output to console"
-	// }
-	"Create tests for puzzle": {
-		"scope": "python",
-		"prefix": "sn-test",
-		"body": [
-			"import pytest",
-			"",
-			"from advent_of_code.constants import TEST_INPUT_PATH",
-			"from advent_of_code.utils import load_input",
-			"from advent_of_code.twenty_twenty_two.day${1:${CURRENT_DATE}} import (",
-			"\tparse_input,",
-			"\tsolve_part_one,",
-			"\tsolve_part_two,",
-			")",
-			"\n",
-			"TODAYS_TEST_INPUT_PATH = TEST_INPUT_PATH.joinpath(\"day${1:${CURRENT_DATE}}\")",
-			"\n",
-			"@pytest.fixture(scope=\"session\")",
-			"def raw_input():",
-			"\treturn load_input(TODAYS_TEST_INPUT_PATH)",
-			"\n",
-			"def test_parse_input(raw_input):",
-			"\tassert parse_input == []",
-			"\n",
-			"def test_solve_part_one(raw_input):",
-			"\tassert solve_part_one(raw_input) == 42",
-			"\n",
-			"def test_solve_part_two(raw_input):",
-			"\tassert solve_part_two(raw_input) == 42",
-		],
-		"description": "Create test for AOC puzzle"
-	},
-	"Create solution for puzzle": {
-		"scope": "python",
-		"prefix": "sn-puzzle",
-		"body": [
-			"\"\"\"Puzzle for advent of code ${1:${CURRENT_YEAR}} day ${2:${CURRENT_DATE}}.\"\"\"",
-			"",
-			"from advent_of_code.constants import TWENTY_TWENTY_TWO_INPUT_PATH",
-			"from advent_of_code.utils import load_input",
-			"\n",
-			"def parse_input(raw_input):",
-			"\t$0",
-			"\n",
-			"def solve_part_one(raw_input):",
-			"\traise NotImplementedError()",
-			"\n",
-			"def solve_part_two(raw_input):",
-			"\traise NotImplementedError()",
-			"\n",
-			"def solve_puzzle():",
-			"\tpuzzle_input_path = TWENTY_TWENTY_TWO_INPUT_PATH.joinpath(\"${TM_FILENAME_BASE}\")",
-			"\tpuzzle_input = load_input(puzzle_input_path)",
-			"\tsolution_part_one = solve_part_one(puzzle_input)",
-			"\tsolution_part_two = solve_part_two(puzzle_input)",
-			"\tprint(",
-			"\t\t\"Advent of code ${1:${CURRENT_YEAR}} day ${2:${CURRENT_DATE}}:\",",
-			"\t\tf\"Solution for part one: {solution_part_one}\",",
-			"\t\tf\"Solution for part two: {solution_part_two}\",",
-			"\t\tsep=\"\\n\",",
-			"\t)",
-			"\n",
-			"if __name__ == \"__main__\":",
-			"\tsolve_puzzle()",
-		],
-		"description": "Create solution for AOC puzzle"
-	}
+    // Place your advent-of-code-2022 workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+    // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+    // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+    // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+    // Placeholders with the same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"scope": "javascript,typescript",
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // }
+    "Create tests for puzzle": {
+        "scope": "python",
+        "prefix": "sn-test",
+        "body": [
+            "import pytest",
+            "",
+            "from advent_of_code.constants import TWENTY_TWENTY_THREE_TEST_INPUT_PATH",
+            "from advent_of_code.utils import load_input",
+            "from advent_of_code.twenty_twenty_three.day${1:${CURRENT_DATE}} import (",
+            "\tparse_input,",
+            "\tsolve_part_one,",
+            "\tsolve_part_two,",
+            ")",
+            "\n",
+            "TODAYS_TEST_INPUT_PATH = TWENTY_TWENTY_THREE_TEST_INPUT_PATH.joinpath(\"day${1:${CURRENT_DATE}}\")",
+            "\n",
+            "@pytest.fixture(scope=\"session\")",
+            "def raw_input():",
+            "\treturn load_input(TODAYS_TEST_INPUT_PATH)",
+            "\n",
+            "def test_parse_input(raw_input):",
+            "\tassert parse_input == []",
+            "\n",
+            "def test_solve_part_one(raw_input):",
+            "\tassert solve_part_one(raw_input) == 42",
+            "\n",
+            "def test_solve_part_two(raw_input):",
+            "\tassert solve_part_two(raw_input) == 42"
+        ],
+        "description": "Create test for AOC puzzle"
+    },
+    "Create solution for puzzle": {
+        "scope": "python",
+        "prefix": "sn-puzzle",
+        "body": [
+            "\"\"\"Puzzle for advent of code ${1:${CURRENT_YEAR}} day ${2:${CURRENT_DATE}}.\"\"\"",
+            "",
+            "from advent_of_code.constants import TWENTY_TWENTY_THREE_INPUT_PATH",
+            "from advent_of_code.utils import load_input",
+            "\n",
+            "def parse_input(raw_input):",
+            "\t$0",
+            "\n",
+            "def solve_part_one(raw_input):",
+            "\traise NotImplementedError()",
+            "\n",
+            "def solve_part_two(raw_input):",
+            "\traise NotImplementedError()",
+            "\n",
+            "def solve_puzzle():",
+            "\tpuzzle_input_path = TWENTY_TWENTY_THREE_INPUT_PATH.joinpath(\"${TM_FILENAME_BASE}\")",
+            "\tpuzzle_input = load_input(puzzle_input_path)",
+            "\tsolution_part_one = solve_part_one(puzzle_input)",
+            "\tsolution_part_two = solve_part_two(puzzle_input)",
+            "\tprint(",
+            "\t\t\"Advent of code ${1:${CURRENT_YEAR}} day ${2:${CURRENT_DATE}}:\",",
+            "\t\tf\"Solution for part one: {solution_part_one}\",",
+            "\t\tf\"Solution for part two: {solution_part_two}\",",
+            "\t\tsep=\"\\n\",",
+            "\t)",
+            "\n",
+            "if __name__ == \"__main__\":",
+            "\tsolve_puzzle()"
+        ],
+        "description": "Create solution for AOC puzzle"
+    }
 }
