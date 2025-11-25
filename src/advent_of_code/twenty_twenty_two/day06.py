@@ -1,7 +1,6 @@
 """Puzzle for advent of code 2022 day 06."""
 
 from functools import partial
-from typing import Union
 
 from advent_of_code.constants import TWENTY_TWENTY_TWO_INPUT_PATH
 from advent_of_code.utils import load_input
@@ -13,7 +12,7 @@ def has_duplicate(chars: list[str]) -> bool:
     return False
 
 
-def find_marker(buffer: str, distinct_chars: int) -> Union[int, None]:
+def find_marker(buffer: str, distinct_chars: int) -> int | None:
     chars = []
 
     for index, char in enumerate(buffer):

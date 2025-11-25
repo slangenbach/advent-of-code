@@ -12,5 +12,4 @@ def load_input(input_path: Path) -> list[str]:
     Returns:
         list[str]: Input as text split by linebreaks
     """
-
     return input_path.read_text().split("\n")

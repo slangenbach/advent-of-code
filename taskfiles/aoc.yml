@@ -1,0 +1,31 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  new-year:
+    cmds:
+      - mkdir -p src/advent_of_code/twenty_twenty_{{.YEAR}}/inputs
+      - mkdir -p src/tests/twenty_twenty_{{.YEAR}}/inputs
+    status:
+      - test -d src/advent_of_code/twenty_twenty_{{.YEAR}}/inputs
+      - test -d src/tests/twenty_twenty_{{.YEAR}}/inputs
+    requires:
+      vars:
+        - YEAR
+    desc: Create directories for puzzles for new year
+
+  new-day:
+    cmds:
+      - touch src/advent_of_code/twenty_twenty_{{.YEAR}}/inputs/day{{.DAY}}
+      - touch src/advent_of_code/twenty_twenty_{{.YEAR}}/day{{.DAY}}.py
+      - touch src/tests/twenty_twenty_{{.YEAR}}/test_day{{.DAY}}.py
+    status:
+      - test -f src/advent_of_code/twenty_twenty_{{.YEAR}}/inputs/day{{.DAY}}
+      - test -f src/advent_of_code/twenty_twenty_{{.YEAR}}/day{{.DAY}}.py
+      - test -f src/tests/twenty_twenty_{{.YEAR}}/test_day{{.DAY}}.py
+    requires:
+      vars:
+        - YEAR
+        - DAY
+    desc: Create files for puzzle for new day

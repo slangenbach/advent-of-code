@@ -1,7 +1,5 @@
 """Puzzle for advent of code 2022 day 02."""
 
-from typing import Tuple
-
 from advent_of_code.constants import TWENTY_TWENTY_TWO_INPUT_PATH
 from advent_of_code.utils import load_input
 
@@ -21,7 +19,7 @@ STRATEGY_MAPPING = {
 FAKE_MAPPING = {"X": "lose", "Y": "draw", "Z": "win"}
 
 
-def transform_scores(opponent: str, you: str, faked: bool) -> Tuple[str, str]:
+def transform_scores(opponent: str, you: str, faked: bool) -> tuple[str, str]:
     if faked:
         return STRATEGY_MAPPING[opponent], FAKE_MAPPING[you]
 

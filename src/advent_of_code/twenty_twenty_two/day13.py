@@ -3,7 +3,6 @@
 import ast
 import math
 from functools import cmp_to_key
-from typing import Union
 
 from advent_of_code.constants import TWENTY_TWENTY_TWO_INPUT_PATH
 from advent_of_code.utils import load_input
@@ -30,7 +29,7 @@ def parse_input(raw_input: list[str]) -> list[list]:
     return parsed_input
 
 
-def compare_integers(left: int, right: int) -> Union[bool, None]:
+def compare_integers(left: int, right: int) -> bool | None:
     if left < right:
         return True
     elif left > right:
@@ -39,9 +38,8 @@ def compare_integers(left: int, right: int) -> Union[bool, None]:
         return
 
 
-def compare_lists(left: list, right: list) -> Union[bool, None]:
+def compare_lists(left: list, right: list) -> bool | None:
     for left_value, right_value in zip(left, right):
-
         # recursively compare items of current pair
         is_ordered = is_correct_order(left_value, right_value)
         if is_ordered is not None:
@@ -55,7 +53,7 @@ def compare_lists(left: list, right: list) -> Union[bool, None]:
         return
 
 
-def is_correct_order(left: list, right: list) -> Union[bool, None]:
+def is_correct_order(left: list, right: list) -> bool | None:
     if isinstance(left, int) and isinstance(right, int):
         return compare_integers(left, right)
     elif isinstance(left, list) and isinstance(right, list):
@@ -79,9 +77,7 @@ def solve_part_one(raw_input: list[str]) -> int:
 
 
 def parse_input_part_two(raw_input: list[str]) -> list[list]:
-    parsed_input = [
-        ast.literal_eval(line) for line in raw_input if line.startswith("[")
-    ]
+    parsed_input = [ast.literal_eval(line) for line in raw_input if line.startswith("[")]
     parsed_input.extend(DIVIDER_PACKETS)
 
     return parsed_input
@@ -100,9 +96,7 @@ def order_input(parsed_input: list[list]) -> list[list]:
 
 
 def get_divider_packet_indices(ordered_input: list) -> list[int]:
-    return [
-        ordered_input.index(divider_packet) + 1 for divider_packet in DIVIDER_PACKETS
-    ]
+    return [ordered_input.index(divider_packet) + 1 for divider_packet in DIVIDER_PACKETS]
 
 
 def solve_part_two(raw_input: list[str]) -> int:

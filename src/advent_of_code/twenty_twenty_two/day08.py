@@ -2,12 +2,11 @@
 
 import math
 from pathlib import Path
-from typing import Tuple
 
 from advent_of_code.constants import TWENTY_TWENTY_TWO_INPUT_PATH
 
 Grid = list[list[int]]
-SightLines = Tuple[list[int], list[int], list[int], list[int]]
+SightLines = tuple[list[int], list[int], list[int], list[int]]
 
 
 def load_input(input_path: Path) -> Grid:

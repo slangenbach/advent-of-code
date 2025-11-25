@@ -1,29 +1,56 @@
-[tool.poetry]
+[project]
 name = "advent-of-code"
-version = "0.2.3"
+version = "0.3.0"
 description = "Submissions for advent of code"
-authors = ["Stefan Langenbach"]
+authors = [
+    {name = "Stefan Langenbach", email = "stefan@langenbach.online"}
+]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "advent_of_code"}]
+requires-python = ">=3.12"
 
-[tool.poetry.dependencies]
-python = "^3.9"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.2.0"
-pre-commit = "^2.20.0"
-ipython = "^8.7.0"
+[dependency-groups]
+dev = [
+    "pytest-mock>=3.14.0",
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "ty>=0.0.1a7",
+]
 
 [tool.ruff]
 line-length = 100
 
 [tool.ruff.lint]
-select = ["E", "I", "S", "B", "PL"]
+select = [
+    "B",    # flake8-bugbear
+    "BLE",  # flake8-blind-except
+    "D",    # pydocstyle
+    "DTZ",  # flake8-datetimez
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # isort
+    "PT",   # flake8-pytest-style
+    "PTH",  # flake8-use-pathlib
+    "S",    # flake8-bandit
+    "UP",   # pyupgrade
+]
+ignore = ["D203", "D212"]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*" = ["S101", "PLR2004"]
+"__init__.py" = ["D104"]
+"tests/*" = ["S101", "D100", "D103"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --strict-markers --cov --cov-report=term"
+markers = [
+    "local: marks tests as running locally only (deselect with '-m \"not local\"')"
+]
+xfail_strict = true
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.9.4,<0.10.0"]
+build-backend = "uv_build"
