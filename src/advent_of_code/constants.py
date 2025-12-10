@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-ROOT_PATH = Path(__file__).parent.parent
+ROOT_PATH = Path(__file__).parent.parent.parent
 TEST_PATH = ROOT_PATH / "tests"
 PACKAGE_PATH = ROOT_PATH / "advent_of_code"
 
