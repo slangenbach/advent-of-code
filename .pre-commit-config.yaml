@@ -11,6 +11,7 @@ repos:
         name: Check TOML files
       - id: end-of-file-fixer
         name: Ensure proper file endings
+        exclude: ^(tests|src\/advent_of_code)/.*/inputs/
       - id: trailing-whitespace
         name: Remove unnecessary whitespace from code
         args: [--markdown-linebreak-ext=md]
