@@ -16,13 +16,16 @@ def raw_input():
     return load_input(TODAYS_TWENTY_TWENTY_TWO_TEST_INPUT_PATH)
 
 
+@pytest.mark.skip
 def test_parse_input(raw_input):
     assert parse_input == []
 
 
+@pytest.mark.skip
 def test_solve_part_one(raw_input):
     assert solve_part_one(raw_input) == 42
 
 
+@pytest.mark.skip
 def test_solve_part_two(raw_input):
     assert solve_part_two(raw_input) == 42

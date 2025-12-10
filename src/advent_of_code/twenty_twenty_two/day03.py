@@ -1,13 +1,12 @@
 """Puzzle for advent of code 2022 day 03."""
 
 from string import ascii_lowercase, ascii_uppercase
-from typing import Tuple
 
 from advent_of_code.constants import TWENTY_TWENTY_TWO_INPUT_PATH
 from advent_of_code.utils import load_input
 
 
-def split_compartments(rucksack: str) -> Tuple[str, str]:
+def split_compartments(rucksack: str) -> tuple[str, str]:
     midpoint = len(rucksack) // 2
     return rucksack[:midpoint], rucksack[midpoint:]
 

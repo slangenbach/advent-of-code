@@ -1,7 +1,5 @@
 """Puzzle for advent of code 2022 day 04."""
 
-from typing import Tuple
-
 from advent_of_code.constants import TWENTY_TWENTY_TWO_INPUT_PATH
 from advent_of_code.utils import load_input
 
@@ -10,7 +8,7 @@ def split_assignment(assignment: str) -> list[list[str]]:
     return [section.split("-") for section in assignment.split(",")]
 
 
-def transform_sections(sections: list[list[str]]) -> Tuple[int, int, int, int]:
+def transform_sections(sections: list[list[str]]) -> tuple[int, int, int, int]:
     return (
         int(sections[0][0]),
         int(sections[0][1]),
@@ -26,12 +24,8 @@ def is_fully_contained(
     stop_second_section: int,
 ) -> bool:
     if (
-        start_first_section >= start_second_section
-        and stop_first_section <= stop_second_section
-    ) | (
-        start_second_section >= start_first_section
-        and stop_second_section <= stop_first_section
-    ):
+        start_first_section >= start_second_section and stop_first_section <= stop_second_section
+    ) | (start_second_section >= start_first_section and stop_second_section <= stop_first_section):
         return True
 
     return False

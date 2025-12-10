@@ -1,7 +1,7 @@
 """Puzzle for advent of code 2023 day 01."""
 
 import re
-from typing import Match
+from re import Match
 
 from advent_of_code.constants import TWENTY_TWENTY_THREE_INPUT_PATH
 from advent_of_code.utils import load_input
