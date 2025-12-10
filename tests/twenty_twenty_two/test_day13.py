@@ -45,13 +45,13 @@ def test_parse_input(raw_input):
     ]
 
 
-@pytest.mark.parametrize(["left", "right", "expected"], [(1, 2, True), (2, 1, False), (1, 1, None)])
+@pytest.mark.parametrize(("left", "right", "expected"), [(1, 2, True), (2, 1, False), (1, 1, None)])
 def test_compare_integers(left, right, expected):
     assert compare_integers(left, right) == expected
 
 
 @pytest.mark.parametrize(
-    ["left", "right", "expected"],
+    ("left", "right", "expected"),
     [([1, 2], [1, 3], True), ([1, 1], [1, 1, 1], True), ([1, 1, 1], [1, 1], False)],
 )
 def test_compare_lists(left, right, expected):
@@ -59,7 +59,7 @@ def test_compare_lists(left, right, expected):
 
 
 @pytest.mark.parametrize(
-    ["left", "right", "expected"],
+    ("left", "right", "expected"),
     [
         ([1, 1, 3, 1, 1], [1, 1, 5, 1, 1], True),
         ([[1], [2, 3, 4]], [[1], 4], True),

@@ -22,11 +22,11 @@ def test_has_duplicate():
     assert not has_duplicate(["a", "b", "c", "d"])
 
 
-@pytest.mark.parametrize("example,expected", [(0, 7), (1, 5), (2, 6), (3, 10), (4, 11)])
+@pytest.mark.parametrize(("example", "expected"), [(0, 7), (1, 5), (2, 6), (3, 10), (4, 11)])
 def test_find_package_marker(day06_input, example, expected):
     assert find_marker(buffer=day06_input[example], distinct_chars=4) == expected
 
 
-@pytest.mark.parametrize("example,expected", [(0, 19), (1, 23), (2, 23), (3, 29), (4, 26)])
+@pytest.mark.parametrize(("example", "expected"), [(0, 19), (1, 23), (2, 23), (3, 29), (4, 26)])
 def test_find_message_marker(day06_input, example, expected):
     assert find_marker(buffer=day06_input[example], distinct_chars=14) == expected

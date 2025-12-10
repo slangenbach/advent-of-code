@@ -29,7 +29,7 @@ def test_load_input():
 
 
 @pytest.mark.parametrize(
-    ["x", "y", "expected"],
+    ("x", "y", "expected"),
     [
         (2, 1, ([5, 2], [3], [1, 2], [3, 5, 3])),
         (0, 0, ([], [], [0, 3, 7, 3], [2, 6, 3, 3])),

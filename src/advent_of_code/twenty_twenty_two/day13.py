@@ -39,7 +39,7 @@ def compare_integers(left: int, right: int) -> bool | None:
 
 
 def compare_lists(left: list, right: list) -> bool | None:
-    for left_value, right_value in zip(left, right):
+    for left_value, right_value in zip(left, right):  # noqa: B905
         # recursively compare items of current pair
         is_ordered = is_correct_order(left_value, right_value)
         if is_ordered is not None:

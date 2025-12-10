@@ -47,7 +47,7 @@ def calculate_scenic_score(height: int, sight_lines: SightLines) -> int:
 
     for line in sight_lines:
         if line:
-            for index, tree in enumerate(line):
+            for index, tree in enumerate(line):  # noqa: B007
                 if height <= tree:
                     break
             visible_trees.append(index + 1)  # pyright: ignore
