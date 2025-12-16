@@ -1,6 +1,6 @@
 # Advent of Code
 
-https://github.com/slangenbach/advent-of-code/actions/workflows/ci.yml/badge.svg
+![CI](https://github.com/slangenbach/advent-of-code/actions/workflows/ci.yml/badge.svg)
 
 Python-powered solutions to puzzles from [advent of code][1] from 2022 onwards.
 
@@ -11,11 +11,13 @@ Python-powered solutions to puzzles from [advent of code][1] from 2022 onwards.
 
 ## Installation
 
-tbd
+1. Setup the development environment: `task setup`
 
 ## Usage
 
 tbd
+
+## Troubleshooting
 
 
 [1]: https://adventofcode.com/
