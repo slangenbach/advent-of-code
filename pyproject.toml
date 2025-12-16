@@ -1,6 +1,6 @@
 [project]
 name = "advent-of-code"
-version = "0.3.0"
+version = "0.3.1"
 description = "Submissions for advent of code"
 authors = [
     {name = "Stefan Langenbach", email = "stefan@langenbach.online"}
@@ -8,6 +8,9 @@ authors = [
 license = "MIT"
 readme = "README.md"
 requires-python = ">=3.12"
+dependencies = [
+    "advent-of-code-data>=2.1.1",
+]
 
 [dependency-groups]
 dev = [

@@ -5,31 +5,54 @@ version: "3"
 tasks:
   new-year:
     cmds:
-      - mkdir -p src/advent_of_code/twenty_twenty_{{.YEAR}}/inputs
+      - mkdir -p data/{{.YEAR}}/inputs
+      - mkdir -p data/{{.YEAR}}/examples
+      - mkdir -p src/advent_of_code/twenty_twenty_{{.YEAR}}
       - mkdir -p tests/twenty_twenty_{{.YEAR}}/inputs
       - touch src/advent_of_code/twenty_twenty_{{.YEAR}}/__init__.py
       - touch tests/twenty_twenty_{{.YEAR}}/__init__.py
     status:
-      - test -d src/advent_of_code/twenty_twenty_{{.YEAR}}/inputs
+      - test -d data/{{.YEAR}}/inputs
+      - test -d data/{{.YEAR}}/examples
+      - test -d src/advent_of_code/twenty_twenty_{{.YEAR}}
       - test -d tests/twenty_twenty_{{.YEAR}}/inputs
       - test -f src/advent_of_code/twenty_twenty_{{.YEAR}}/__init__.py
       - test -f tests/twenty_twenty_{{.YEAR}}/__init__.py
     requires:
       vars:
         - YEAR
-    desc: Create directories for puzzles for new year
+    desc: Create directories for new year
 
   new-day:
     cmds:
-      - touch src/advent_of_code/twenty_twenty_{{.YEAR}}/inputs/day{{.DAY}}
       - touch src/advent_of_code/twenty_twenty_{{.YEAR}}/day{{.DAY}}.py
       - touch tests/twenty_twenty_{{.YEAR}}/test_day{{.DAY}}.py
     status:
-      - test -f src/advent_of_code/twenty_twenty_{{.YEAR}}/inputs/day{{.DAY}}
       - test -f src/advent_of_code/twenty_twenty_{{.YEAR}}/day{{.DAY}}.py
       - test -f tests/twenty_twenty_{{.YEAR}}/test_day{{.DAY}}.py
     requires:
       vars:
         - YEAR
         - DAY
-    desc: Create files for puzzle for new day
+    desc: Create files for new day
+
+  save-token:
+    cmds:
+      - echo "{{.TOKEN}}" > ~/.config/aocd/token
+    requires:
+      vars:
+        - TOKEN
+    desc: Save AOC session token to file
+
+  get-data:
+    cmds:
+      - uv run aocd {{.YEAR}} {{.DAY}} > data/{{.YEAR}}/inputs/day{{.DAY}}.txt
+      - uv run aocd {{.YEAR}} {{.DAY}} --example > data/{{.YEAR}}/examples/day{{.DAY}}.txt
+    status:
+      - test -f data/{{.YEAR}}/inputs/day{{.DAY}}.txt
+      - test -f data/{{.YEAR}}/examples/day{{.DAY}}.txt
+    requires:
+      vars:
+        - YEAR
+        - DAY
+    desc: Fetch data for given day and year

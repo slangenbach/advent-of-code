@@ -27,6 +27,13 @@ tasks:
       - test -d data
     internal: true
 
+  create-token-dir:
+    cmds:
+      - mkdir -p ~/.config/aocd
+    status:
+      - test -d ~/.config/aocd
+    internal: true
+
   install-pre-commit:
     cmds:
       - uv tool install pre-commit
@@ -40,6 +47,7 @@ tasks:
       - task: init-git-repo
       - task: create-env-file
       - task: create-data-dir
+      - task: create-token-dir
       - task: install-pre-commit
       - uv sync --all-groups --all-extras
     desc: Setup development environment
@@ -56,10 +64,10 @@ tasks:
 
   bump-version:
     cmds:
-      - uv version --bump {{.BUMP}}
+      - uv version --bump {{.VERSION}}
       - git tag v$(uv version --short)
     requires:
       vars:
-        - name: BUMP
+        - name: VERSION
           enum: [patch, minor, major]
     desc: Bump project version

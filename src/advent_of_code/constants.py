@@ -3,6 +3,7 @@
 from pathlib import Path
 
 ROOT_PATH = Path(__file__).parent.parent.parent
+DATA_PATH = ROOT_PATH / "data"
 TEST_PATH = ROOT_PATH / "tests"
 PACKAGE_PATH = ROOT_PATH / "advent_of_code"
 
@@ -15,3 +16,8 @@ TWENTY_TWENTY_THREE_PATH = PACKAGE_PATH / "twenty_twenty_three"
 TWENTY_TWENTY_THREE_INPUT_PATH = TWENTY_TWENTY_THREE_PATH / "inputs"
 TWENTY_TWENTY_THREE_TEST_PATH = TEST_PATH / "twenty_twenty_three"
 TWENTY_TWENTY_THREE_TEST_INPUT_PATH = TWENTY_TWENTY_THREE_TEST_PATH / "inputs"
+
+TWENTY_TWENTY_FIVE_PATH = PACKAGE_PATH / "twenty_twenty_five"
+TWENTY_TWENTY_FIVE_INPUT_PATH = DATA_PATH / "2025" / "inputs"
+TWENTY_TWENTY_FIVE_TEST_PATH = TEST_PATH / "twenty_twenty_five"
+TWENTY_TWENTY_FIVE_TEST_INPUT_PATH = DATA_PATH / "2025" / "examples"
