@@ -8,14 +8,14 @@ tasks:
       - mkdir -p data/{{.YEAR}}/inputs
       - mkdir -p data/{{.YEAR}}/examples
       - mkdir -p src/advent_of_code/twenty_twenty_{{.YEAR}}
-      - mkdir -p tests/twenty_twenty_{{.YEAR}}/inputs
+      - mkdir -p tests/twenty_twenty_{{.YEAR}}
       - touch src/advent_of_code/twenty_twenty_{{.YEAR}}/__init__.py
       - touch tests/twenty_twenty_{{.YEAR}}/__init__.py
     status:
       - test -d data/{{.YEAR}}/inputs
       - test -d data/{{.YEAR}}/examples
       - test -d src/advent_of_code/twenty_twenty_{{.YEAR}}
-      - test -d tests/twenty_twenty_{{.YEAR}}/inputs
+      - test -d tests/twenty_twenty_{{.YEAR}}
       - test -f src/advent_of_code/twenty_twenty_{{.YEAR}}/__init__.py
       - test -f tests/twenty_twenty_{{.YEAR}}/__init__.py
     requires:
