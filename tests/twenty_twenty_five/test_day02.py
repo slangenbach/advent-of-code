@@ -99,6 +99,5 @@ def test_solve_part_one(raw_input):
     assert solve_part_one(raw_input) == 1227775554
 
 
-@pytest.mark.xfail(raises=NotImplementedError)
 def test_solve_part_two(raw_input):
     assert solve_part_two(raw_input) == 4174379265

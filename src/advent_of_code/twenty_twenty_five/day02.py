@@ -1,6 +1,6 @@
 """Puzzle for advent of code 2025 day 2."""
 
-from collections.abc import Generator
+from collections.abc import Callable, Generator
 
 from aocd import submit
 
@@ -40,24 +40,55 @@ def is_invalid_id(id: str) -> bool:
         return False
 
 
-def is_also_invalid_id(id: str):
-    pass
+def is_also_invalid_id(id: str) -> bool:
+    n = len(id)
+    windows = [w for w in range(1, (n // 2) + 1)]  # only consider integer windows
+    logger.debug("Processing ID '%s' with length: %s", id, n)
+    logger.debug("Valid windows are: %s", windows)
+
+    for window in windows:
+        logger.debug("Checking window: %s", window)
+        # skip windows not fitting the length of the ID
+        if n % window != 0:
+            continue
+
+        ref = id[0:window]
+        logger.debug("Reference: %s", ref)
+
+        for pos in range(window, n, window):
+            curr_window = id[pos : pos + window]
+            logger.debug("Current window: %s", curr_window)
+            if curr_window != ref:
+                break
+        else:
+            return True
+
+    return False
 
 
-def solve_part_one(raw_input: list[str]) -> int:
+def _solve_puzzle(raw_input: list[str], check_fn: Callable) -> int:
     result = 0
     parsed_input = parse_input(raw_input)
+
     for _input in parsed_input:
         for _id in generate_ids(_input):
-            if is_invalid_id(str(_id)):
+            if check_fn(str(_id)):
                 logger.debug("ID %s is invalid", _id)
                 result += int(_id)
 
     return result
 
 
-def solve_part_two(raw_input: list[str]):
-    raise NotImplementedError()
+def solve_part_one(raw_input: list[str]) -> int:
+    result = _solve_puzzle(raw_input, check_fn=is_invalid_id)
+
+    return result
+
+
+def solve_part_two(raw_input: list[str]) -> int:
+    result = _solve_puzzle(raw_input, check_fn=is_also_invalid_id)
+
+    return result
 
 
 def solve_puzzle():
@@ -65,9 +96,11 @@ def solve_puzzle():
     puzzle_input_path = TWENTY_TWENTY_FIVE_INPUT_PATH.joinpath("day02.txt")
     puzzle_input = load_input(puzzle_input_path)
 
+    logger.info("Solving part one")
     solution_part_one = solve_part_one(puzzle_input)
     logger.info("Solution for part one: %s", solution_part_one)
 
+    logger.info("Solving part two")
     solution_part_two = solve_part_two(puzzle_input)
     logger.info("Solution for part two: %s", solution_part_two)
 
