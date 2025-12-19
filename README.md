@@ -40,7 +40,8 @@ Example data is not yet cleaned automatically.
 
 ### Session token expired
 
-tbd
+1. Login to the [AOC][1] website
+1. Re-run the steps to get and save the token to re-new
 
 
 [1]: https://adventofcode.com/
